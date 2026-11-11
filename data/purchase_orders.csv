@@ -1,0 +1,8 @@
+po_number,vendor_id,description,amount,currency,amount_invoiced,status,issued_date
+PO-5001,V001,Office stationery and printer supplies - Q3,4850.00,USD,0.00,open,2026-09-07
+PO-5002,V002,Freight and last-mile delivery - September,12400.00,USD,0.00,open,2026-08-23
+PO-5003,V003,Cloud hosting annual commitment,24000.00,USD,0.00,open,2026-07-09
+PO-5004,V004,Facilities cleaning services - Q4,8200.00,USD,0.00,open,2026-09-22
+PO-5005,V005,Industrial pump replacement parts,62500.00,USD,0.00,open,2026-09-17
+PO-5006,V006,Brand campaign creative services,15000.00,USD,0.00,open,2026-09-02
+PO-5007,V001,Ergonomic office chairs (20 units),9000.00,USD,0.00,open,2026-09-27

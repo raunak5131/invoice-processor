@@ -1,0 +1,6 @@
+flask>=3.0
+pypdf>=4.0
+gunicorn>=22.0
+# Pillow + reportlab are only needed to regenerate the sample invoices
+Pillow>=10.0
+reportlab>=4.0

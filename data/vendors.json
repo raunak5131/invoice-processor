@@ -1,0 +1,11 @@
+{
+  "vendors": [
+    {"id": "V001", "name": "Acme Office Supplies Inc.", "aliases": ["ACME Office Supply"], "status": "approved", "country": "US"},
+    {"id": "V002", "name": "Brightline Logistics Private Limited", "aliases": [], "status": "approved", "country": "IN"},
+    {"id": "V003", "name": "Northwind Cloud Services LLC", "aliases": [], "status": "approved", "country": "US"},
+    {"id": "V004", "name": "Verdant Facilities Management", "aliases": [], "status": "approved", "country": "US"},
+    {"id": "V005", "name": "Helix Industrial Equipment Co.", "aliases": [], "status": "approved", "country": "US"},
+    {"id": "V006", "name": "Orbit Marketing Studio", "aliases": [], "status": "approved", "country": "US"},
+    {"id": "V007", "name": "Kestrel Staffing Group", "aliases": [], "status": "suspended", "country": "US"}
+  ]
+}

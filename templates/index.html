@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo" aria-hidden="true"></span>Invoice Desk</div>
+  <nav aria-label="Sections">
+    <button class="tab on" data-tab="process">Process</button>
+    <button class="tab" data-tab="dashboard">Dashboard</button>
+    <button class="tab" data-tab="pos">Purchase orders</button>
+  </nav>
+  <button id="reset" class="reset" title="Delete all runs and restore PO balances">Reset demo</button>
+</header>
+
+<main>
+  <section id="tab-process" class="view on">
+    <div class="grid">
+      <aside class="side">
+        <label id="drop" class="drop" tabindex="0">
+          <input id="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff" hidden>
+          <span class="drop-ic" aria-hidden="true">+</span>
+          <span><strong>Drop an invoice</strong><small>PDF or image, or click to browse</small></span>
+        </label>
+        <div class="side-head"><h2>Samples</h2><button id="runall" class="btn">Run all</button></div>
+        <ol id="samples" class="samples"></ol>
+      </aside>
+      <div class="stage-area" id="live">
+        <div class="welcome" id="empty">
+          <div class="welcome-art" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h1>From invoice to decision</h1>
+          <p>Choose a sample or drop in an invoice. You'll see each check run, then a decision with the reasons.</p>
+        </div>
+        <div id="run" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-dashboard" class="view">
+    <div id="kpis" class="kpis"></div>
+    <div class="card table-card">
+      <div class="table-top">
+        <h2>Runs</h2>
+        <div id="filters" class="chips" role="group" aria-label="Filter by status"></div>
+        <input id="search" type="search" placeholder="Search vendor, invoice or file" aria-label="Search runs">
+      </div>
+      <div class="table-wrap"><table id="runs"><thead><tr>
+        <th>Vendor</th><th>Invoice</th><th>PO</th><th class="num">Total</th><th>Decision</th><th>Reason</th>
+      </tr></thead><tbody></tbody></table></div>
+      <p id="runs-empty" class="empty-note" hidden>No runs yet. Process an invoice to see it here.</p>
+    </div>
+  </section>
+
+  <section id="tab-pos" class="view">
+    <div class="pos-head"><h1>Purchase orders</h1><p>Net amounts before tax. Billed updates as invoices are approved.</p></div>
+    <div id="pos" class="pos"></div>
+  </section>
+</main>
+
+<div id="scrim" hidden></div>
+<aside id="drawer" aria-label="Run detail" hidden>
+  <button id="drawer-close" class="x" aria-label="Close">✕</button>
+  <div id="drawer-body"></div>
+</aside>
+<div id="toast" role="status" hidden></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

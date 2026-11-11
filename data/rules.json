@@ -1,0 +1,11 @@
+{
+  "tolerance_auto_pct": 2.0,
+  "tolerance_review_pct": 10.0,
+  "high_value_threshold": 50000,
+  "math_tolerance_abs": 0.05,
+  "stale_invoice_days": 180,
+  "near_duplicate_days": 3,
+  "ocr_min_confidence": 75,
+  "infer_po_min_score": 0.6,
+  "infer_po_min_margin": 0.15
+}

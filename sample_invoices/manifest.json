@@ -1,0 +1,68 @@
+[
+  {
+    "file": "01_acme_happy_path.pdf",
+    "label": "Happy path",
+    "expected": "APPROVED",
+    "description": "Clean text PDF, explicit PO, amounts match exactly."
+  },
+  {
+    "file": "02_brightline_tax_inclusive.pdf",
+    "label": "Edge: tax embedded + name variant",
+    "expected": "APPROVED",
+    "description": "Different layout. Tax is embedded in one total (no tax line), PO written as '5002', vendor name differs from master ('Pvt Ltd' vs 'Private Limited'), net is 1.2% over PO, inside tolerance."
+  },
+  {
+    "file": "03_northwind_split_po_1_of_2.pdf",
+    "label": "Edge: split PO (1 of 2)",
+    "expected": "APPROVED",
+    "description": "Vendor bills half of PO-5003. Approved as partial billing; PO balance tracked."
+  },
+  {
+    "file": "04_northwind_split_po_2_of_2.pdf",
+    "label": "Edge: split PO (2 of 2)",
+    "expected": "APPROVED",
+    "description": "Second half of PO-5003. Cumulative billing now equals the PO, so it is fully billed. Same amount as invoice 1 but different date, so not flagged as a duplicate."
+  },
+  {
+    "file": "05_verdant_overbilled.pdf",
+    "label": "Edge: over PO by 20%",
+    "expected": "REJECTED",
+    "description": "Extra 'deep-clean' line pushes net to 9,840 against an 8,200 PO. Rejected with a vendor email asking for a credit note or change order."
+  },
+  {
+    "file": "06_acme_no_po_reference.pdf",
+    "label": "Edge: no PO reference",
+    "expected": "NEEDS_REVIEW",
+    "description": "Bundled single line, no PO number anywhere. The process infers PO-5007 from vendor + amount + description but never auto-approves an inferred match."
+  },
+  {
+    "file": "07_helix_missing_fields.pdf",
+    "label": "Edge: missing critical info",
+    "expected": "ON_HOLD",
+    "description": "No invoice number, no date, no totals, only line items. Put on hold and a precise request is drafted to the vendor."
+  },
+  {
+    "file": "08_orbit_scanned.pdf",
+    "label": "Edge: scanned image (OCR)",
+    "expected": "APPROVED",
+    "description": "Image-only PDF with noise and skew, no text layer. OCR path, with confidence shown."
+  },
+  {
+    "file": "09_helix_high_value.pdf",
+    "label": "Edge: high-value approval",
+    "expected": "NEEDS_REVIEW",
+    "description": "Everything matches PO-5005 but the 65,625 total is above the 50,000 threshold, so it is routed to the finance controller."
+  },
+  {
+    "file": "10_shadow_unknown_vendor.pdf",
+    "label": "Edge: unknown vendor + stolen PO",
+    "expected": "REJECTED",
+    "description": "Vendor not in the master, citing another vendor's PO. Rejected and escalated internally, not to the sender."
+  },
+  {
+    "file": "11_acme_duplicate_reminder.pdf",
+    "label": "Edge: duplicate (payment reminder)",
+    "expected": "REJECTED",
+    "description": "Vendor re-sends invoice 01 as a 'payment reminder'. Different file bytes, same invoice number, caught as a duplicate. Run after sample 01."
+  }
+]
